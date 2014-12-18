@@ -1,13 +1,13 @@
 /**
  * Created by nikos on 6/9/2014.
  */
-var app = angular.module('movieRama', ['ngRoute', 'ngSanitize']);
+var app = angular.module('jabba', ['ngRoute', 'ngSanitize']);
 
 
 
 app.factory('socket',['$rootScope',
     function($rootScope){
-      var socket = io;
+      var socket = io.connect();
       socket.on('connect',function socketConnected() {
         console.log(
           'Socket is now connected!'
@@ -51,12 +51,18 @@ app.factory('socket',['$rootScope',
     }]
 );
 
+app.controller('MainController', ['socket', '$scope', function(socket, $scope) {
+  socket.on('message', function(data){
+    console.log(data);
+  })
+}]);
+
 
 app.config(['$locationProvider','$routeProvider',function($locationProvider,$routeProvider){
   $routeProvider
     .when('/', {
       templateUrl:'/templates/index.html',
-      controller:"IndexController"
+      controller:"MainController"
     })
     .when('/page/:page', {
       templateUrl:'/templates/index.html',
