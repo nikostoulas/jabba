@@ -27,7 +27,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js"
+    "debug": "node debug app.js",
+    "dev": "nodemon app -i .tmp/ assets/ views/"
   },
   "main": "app.js",
   "repository": {

@@ -7,8 +7,8 @@
 
 module.exports = {
   socket: function(req, res, next) {
-    res.json();
-    Socket.io.broadcast('message', 'hi')
+    res.json({status:'OK'});
+    sails.sockets.blast('message', {data:'hi'});
   }
 };
 
