@@ -20,5 +20,15 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
+  github: {
+    timeout: 5000,
+    clientId: 'd8455a01969372e7cefe',
+    clientSecret: '5d8e5ebe481189ddb3576b518879fb29eaef2814'
+  },
+
+  repos: [
+    'https://github.com/nikosd23/camel-blueprint-phantomconsumers-itest',
+    'https://github.com/nikosd23/apollo-prototype'
+  ]
 
 };
